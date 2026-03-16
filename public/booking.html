@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LED Display Booking</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* General Page Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Booking Form Styling */
+    form {
+      background-color: #111;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+      width: 400px;
+      max-width: 100%;
+      border: 1px solid #FFD700;
+      transition: transform 0.3s ease;
+    }
+
+    form:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #FFD700;
+      letter-spacing: 1px;
+    }
+
+    /* Table for neat alignment */
+    table {
+      width: 100%;
+      border-spacing: 12px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      color: #fff;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #DAA520;
+      outline: none;
+      box-shadow: 0 0 5px #DAA520;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #FFD700;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      background-color: #DAA520;
+    }
+
+    /* ✅ Responsive Design for Mobile */
+    @media (max-width: 500px) {
+      form {
+        padding: 25px;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, select, textarea, button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/submit-booking" method="POST">
+    <h2>📅 Book Your LED Display</h2>
+    <table>
+      <tr>
+        <td><input type="text" name="name" placeholder="Your Name" required></td>
+      </tr>
+      <tr>
+        <td><input type="email" name="email" placeholder="Your Email" required></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="phone" placeholder="Your Phone" required></td>
+      </tr>
+      <tr>
+        <td>
+          <select name="display_type" required>
+            <option value="" disabled selected>Select Display Type</option>
+            <option value="1">Indoor</option>
+            <option value="0">Outdoor</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><textarea name="message" placeholder="Additional Message"></textarea></td>
+      </tr>
+      <tr>
+        <td><button type="submit">Submit Booking</button></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

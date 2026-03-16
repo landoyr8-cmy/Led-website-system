@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      color: #FFD700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #111;
+      padding: 40px 50px;
+      border-radius: 15px;
+      border: 2px solid #FFD700;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+      animation: glow 2s ease-in-out infinite;
+      text-align: center;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      letter-spacing: 2px;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      color: #FFD700;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #DAA520;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    button {
+      width: 100%;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background-color: #DAA520;
+      transform: scale(1.05);
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #FFD700;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>🔐 Admin Login</h1>
+    <form action="/login" method="POST">
+      <input type="password" name="password" placeholder="Enter Admin Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <a href="/">← Back to Home</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Bookings</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #FFD700;
+      font-family: 'Poppins', sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #111;
+      border: 1px solid #FFD700;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    th, td {
+      border: 1px solid #FFD700;
+      padding: 10px;
+      text-align: center;
+      color: #FFD700;
+    }
+
+    th {
+      background-color: #222;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+
+    a, button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #FFD700;
+      color: #000;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    a:hover, button:hover {
+      background-color: #DAA520;
+      transform: scale(1.05);
+    }
+
+    .danger {
+      background-color: red;
+      color: white;
+    }
+
+    .success {
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <nav style="margin-bottom: 20px;">
+    <a href="/" style="margin-right: 15px;">Home</a>
+
+    <% if (loggedIn) { %>
+      <a href="/admin" style="margin-right: 15px;">Admin Dashboard</a>
+      <a href="/logout" style="color: red;">Logout</a>
+    <% } else { %>
+      <a href="/login" style="opacity: 0.7;">Admin Login</a>
+    <% } %>
+  </nav>
+
+  <h1>Admin Dashboard - All Bookings</h1>
+
+  <% if (bookings.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Display Type</th>
+          <th>Message</th>
+          <th>Created At</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% bookings.forEach(b => { %>
+          <tr>
+            <td><%= b.id %></td>
+            <td><%= b.name %></td>
+            <td><%= b.email %></td>
+            <td><%= b.phone %></td>
+            <td><%= b.display_type == 1 ? 'Indoor' : 'Outdoor' %></td>
+            <td><%= b.message %></td>
+            <td><%= new Date(b.created_at).toLocaleString() %></td>
+            <td><%= b.status || 'Pending' %></td>
+            <td>
+              <form action="/admin/delete/<%= b.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="danger">Delete</button>
+              </form>
+              <form action="/admin/confirm/<%= b.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="success">Mark Complete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <form action="/admin/undo-delete" method="POST" style="display:inline;">
+      <button type="submit">↩️ Undo Last Delete</button>
+    </form>
+
+    <form action="/admin/confirm-next" method="POST" style="display:inline;">
+      <button type="submit">✅ Confirm Next Booking</button>
+    </form>
+
+  <% } else { %>
+    <p>No bookings found.</p>
+  <% } %>
+
+  <a href="/admin/export">⬇️ Export to CSV</a>
+  <a href="/">🏠 Back to Home</a>
+</body>
+</html>

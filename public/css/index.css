@@ -1,0 +1,187 @@
+:root {
+    --black: #000000;
+    --gold: #FFD700;
+    --dark-gold: #DAA520;
+    --light-gray: #f8f9fa;
+    /* For backgrounds where needed */
+}
+
+body {
+    background-color: var(--black);
+    color: var(--gold);
+    font-family: 'Roboto', sans-serif;
+}
+ 
+.navbar {
+    background-color: var(--black) !important;
+}
+
+
+.navbar-brand h2,
+.nav-link {
+    color: var(--gold) !important;
+}
+
+
+.nav-link:hover {
+    color: var(--dark-gold) !important;
+}
+
+
+.font-poppins {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+
+.hero {
+    background: linear-gradient(45deg, var(--black), #1a1a1a, var(--gold), #1a1a1a);
+    background-size: 400%;
+    color: var(--gold);
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.hero h2 {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+
+.btn-primary {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+
+.btn-primary:hover {
+    background-color: var(--dark-gold);
+    border-color: var(--dark-gold);
+    color: var(--black);
+}
+
+
+.card {
+    background-color: var(--black);
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+
+.card-title,
+.card-text {
+    color: var(--gold);
+}
+
+
+.bg-light {
+    background-color: var(--black) !important;
+}
+
+
+.accordion-button {
+    background-color: var(--black);
+    color: var(--gold);
+}
+
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--dark-gold);
+    color: var(--black);
+}
+
+
+.accordion-body {
+    background-color: var(--black);
+    color: var(--gold);
+}
+
+
+.form-control {
+    background-color: #333;
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+
+.form-control::placeholder {
+    color: #ccc;
+}
+
+
+.form-label {
+    color: var(--gold);
+}
+
+
+.modal-content {
+    background-color: var(--black);
+    color: var(--gold);
+}
+
+
+.modal-header {
+    border-bottom-color: var(--gold);
+}
+
+
+.modal-footer {
+    border-top-color: var(--gold);
+}
+
+
+.modal-title {
+    color: var(--gold);
+}
+
+
+.table {
+    color: var(--gold);
+}
+
+
+.table th,
+.table td {
+    border-color: var(--gold);
+}
+
+
+footer {
+    background-color: var(--black) !important;
+    color: var(--gold) !important;
+}
+
+
+.social-icon {
+    color: var(--gold) !important;
+}
+
+
+.social-icon:hover {
+    color: var(--dark-gold) !important;
+}
+
+
+.carousel-img {
+    height: 200px;
+    object-fit: cover;
+}
