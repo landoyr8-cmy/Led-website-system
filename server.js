@@ -45,7 +45,7 @@ app.post('/submit-booking', (req, res) => {
 
   const sql = `
     INSERT INTO bookings (name, email, phone, display_type, message, status)
-    VALUES (?, ?, ?, ?, ?, "Pending")
+    VALUES (?, ?, ?, ?, ?, 'Pending')
   `;
 
   db.query(sql, [name, email, phone, display_type, message], (err, result) => {
