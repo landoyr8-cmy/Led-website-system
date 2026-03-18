@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 // Home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html.html'));
 });
 
 // Booking page
@@ -161,7 +161,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Fallback
 app.get('/{*path}', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html.html'));
 });
 
 const PORT = process.env.PORT || 3000;
